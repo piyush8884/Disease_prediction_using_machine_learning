@@ -55,7 +55,7 @@ disease = ['Fungal infection', 'Allergy', 'GERD', 'Chronic cholestasis', 'Drug R
 l2 = [0] * len(l1)
 
 # Load and preprocess testing data
-tr = pd.read_csv("C:/Users/ADMIN/Downloads/Diseaseprediction-master/Diseaseprediction-master/Testing.csv")
+tr = pd.read_csv("Testing.csv")
 # Replace disease labels with numerical values
 tr.replace({'prognosis':{'Fungal infection':0,'Allergy':1,'GERD':2,'Chronic cholestasis':3,'Drug Reaction':4,
 'Peptic ulcer diseae':5,'AIDS':6,'Diabetes ':7,'Gastroenteritis':8,'Bronchial Asthma':9,'Hypertension ':10,
@@ -70,7 +70,7 @@ X_test = tr[l1]
 y_test = tr[["prognosis"]]
 
 # Load and preprocess training data
-df = pd.read_csv("C:/Users/ADMIN/Downloads/Diseaseprediction-master/Diseaseprediction-master/Training.csv")
+df = pd.read_csv("Training.csv")
 # Replace disease labels with numerical values
 df.replace({'prognosis':{'Fungal infection':0,'Allergy':1,'GERD':2,'Chronic cholestasis':3,'Drug Reaction':4,
 'Peptic ulcer diseae':5,'AIDS':6,'Diabetes ':7,'Gastroenteritis':8,'Bronchial Asthma':9,'Hypertension ':10,
