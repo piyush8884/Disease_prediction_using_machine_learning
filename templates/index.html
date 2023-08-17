@@ -1,0 +1,206 @@
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Disease Predictor</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Disease Predictor</h1>-->
+<!--    <form action="/predict" method="post">-->
+<!--        <label>Symptom 1:</label>-->
+<!--        <select name="symptom1" id="symptom1Select">-->
+<!--            <option value="None">None</option>-->
+<!--        </select><br>-->
+
+<!--        <label>Symptom 2:</label>-->
+<!--        <select name="symptom2" id="symptom2Select">-->
+<!--            <option value="None">None</option>-->
+<!--        </select><br>-->
+
+<!--        <label>Symptom 3:</label>-->
+<!--        <select name="symptom3" id="symptom3Select">-->
+<!--            <option value="None">None</option>-->
+<!--        </select><br>-->
+
+<!--        <label>Symptom 4:</label>-->
+<!--        <select name="symptom4" id="symptom4Select">-->
+<!--            <option value="None">None</option>-->
+<!--        </select><br>-->
+
+<!--        <label>Symptom 5:</label>-->
+<!--        <select name="symptom5" id="symptom5Select">-->
+<!--            <option value="None">None</option>-->
+<!--        </select><br>-->
+
+<!--        <button type="submit">Predict</button>-->
+<!--    </form>-->
+
+<!--    <script>-->
+<!--    var symptoms = ['itching','skin_rash','nodal_skin_eruptions','continuous_sneezing','shivering','chills','joint_pain',-->
+<!--    'stomach_pain','acidity','ulcers_on_tongue','muscle_wasting','vomiting','burning_micturition','spotting_ urination','fatigue',-->
+<!--    'weight_gain','anxiety','cold_hands_and_feets','mood_swings','weight_loss','restlessness','lethargy','patches_in_throat',-->
+<!--    'irregular_sugar_level','cough','high_fever','sunken_eyes','breathlessness','sweating','dehydration','indigestion',-->
+<!--    'headache','yellowish_skin','dark_urine','nausea','loss_of_appetite','pain_behind_the_eyes','back_pain','constipation',-->
+<!--    'abdominal_pain','diarrhoea','mild_fever','yellow_urine','yellowing_of_eyes','acute_liver_failure','fluid_overload',-->
+<!--    'swelling_of_stomach','swelled_lymph_nodes','malaise','blurred_and_distorted_vision','phlegm','throat_irritation',-->
+<!--    'redness_of_eyes','sinus_pressure','runny_nose','congestion','chest_pain','weakness_in_limbs','fast_heart_rate',-->
+<!--    'pain_during_bowel_movements','pain_in_anal_region','bloody_stool','irritation_in_anus','neck_pain','dizziness','cramps',-->
+<!--    'bruising','obesity','swollen_legs','swollen_blood_vessels','puffy_face_and_eyes','enlarged_thyroid','brittle_nails',-->
+<!--    'swollen_extremeties','excessive_hunger','extra_marital_contacts','drying_and_tingling_lips','slurred_speech','knee_pain','hip_joint_pain',-->
+<!--    'muscle_weakness','stiff_neck','swelling_joints','movement_stiffness','spinning_movements','loss_of_balance','unsteadiness','weakness_of_one_body_side',-->
+<!--    'loss_of_smell','bladder_discomfort','foul_smell_of urine','continuous_feel_of_urine','passage_of_gases','internal_itching','toxic_look_(typhos)',-->
+<!--    'depression','irritability','muscle_pain','altered_sensorium','red_spots_over_body','belly_pain','abnormal_menstruation','dischromic _patches',-->
+<!--    'watering_from_eyes','increased_appetite','polyuria','family_history','mucoid_sputum','rusty_sputum','lack_of_concentration','visual_disturbances',-->
+<!--    'receiving_blood_transfusion','receiving_unsterile_injections','coma','stomach_bleeding','distention_of_abdomen','history_of_alcohol_consumption',-->
+<!--    'fluid_overload','blood_in_sputum','prominent_veins_on_calf','palpitations','painful_walking','pus_filled_pimples','blackheads','scurring','skin_peeling',-->
+<!--    'silver_like_dusting','small_dents_in_nails','inflammatory_nails','blister','red_sore_around_nose','yellow_crust_ooze'];-->
+
+<!--    var selects = document.querySelectorAll("select");-->
+
+<!--    for (var i = 0; i < selects.length; i++) {-->
+<!--        var select = selects[i];-->
+<!--        for (var j = 0; j < symptoms.length; j++) {-->
+<!--            var option = document.createElement("option");-->
+<!--            option.value = symptoms[j];-->
+<!--            option.text = symptoms[j];-->
+<!--            select.appendChild(option);-->
+<!--        }-->
+<!--    }-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease Predictor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label {
+            font-weight: bold;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Disease Predictor</h1>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="symptom1" >Symptom 1:</label>
+                <select class="form-control" name="symptom1" id="symptom1Select" required>
+                    <option value="None">Select</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="symptom2">Symptom 2:</label>
+                <select class="form-control" name="symptom2" id="symptom2Select" required>
+                    <option value="None">Select</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="symptom3">Symptom 3:</label>
+                <select class="form-control" name="symptom3" id="symptom3Select" required>
+                    <option value="None">Select</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="symptom4">Symptom 4:</label>
+                <select class="form-control" name="symptom4" id="symptom4Select" required>
+                    <option value="None">Select</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="symptom5">Symptom 5:</label>
+                <select class="form-control" name="symptom5" id="symptom5Select" required>
+                    <option value="None">Select</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" id="predictButton" disabled>Predict</button>
+        </form>
+    </div>
+    <script>
+        var symptoms = ['itching','skin_rash','nodal_skin_eruptions','continuous_sneezing','shivering','chills','joint_pain',
+        'stomach_pain','acidity','ulcers_on_tongue','muscle_wasting','vomiting','burning_micturition','spotting_ urination','fatigue',
+        'weight_gain','anxiety','cold_hands_and_feets','mood_swings','weight_loss','restlessness','lethargy','patches_in_throat',
+        'irregular_sugar_level','cough','high_fever','sunken_eyes','breathlessness','sweating','dehydration','indigestion',
+        'headache','yellowish_skin','dark_urine','nausea','loss_of_appetite','pain_behind_the_eyes','back_pain','constipation',
+        'abdominal_pain','diarrhoea','mild_fever','yellow_urine','yellowing_of_eyes','acute_liver_failure','fluid_overload',
+        'swelling_of_stomach','swelled_lymph_nodes','malaise','blurred_and_distorted_vision','phlegm','throat_irritation',
+        'redness_of_eyes','sinus_pressure','runny_nose','congestion','chest_pain','weakness_in_limbs','fast_heart_rate',
+        'pain_during_bowel_movements','pain_in_anal_region','bloody_stool','irritation_in_anus','neck_pain','dizziness','cramps',
+        'bruising','obesity','swollen_legs','swollen_blood_vessels','puffy_face_and_eyes','enlarged_thyroid','brittle_nails',
+        'swollen_extremeties','excessive_hunger','extra_marital_contacts','drying_and_tingling_lips','slurred_speech','knee_pain','hip_joint_pain',
+        'muscle_weakness','stiff_neck','swelling_joints','movement_stiffness','spinning_movements','loss_of_balance','unsteadiness','weakness_of_one_body_side',
+        'loss_of_smell','bladder_discomfort','foul_smell_of urine','continuous_feel_of_urine','passage_of_gases','internal_itching','toxic_look_(typhos)',
+        'depression','irritability','muscle_pain','altered_sensorium','red_spots_over_body','belly_pain','abnormal_menstruation','dischromic _patches',
+        'watering_from_eyes','increased_appetite','polyuria','family_history','mucoid_sputum','rusty_sputum','lack_of_concentration','visual_disturbances',
+        'receiving_blood_transfusion','receiving_unsterile_injections','coma','stomach_bleeding','distention_of_abdomen','history_of_alcohol_consumption',
+        'fluid_overload','blood_in_sputum','prominent_veins_on_calf','palpitations','painful_walking','pus_filled_pimples','blackheads','scurring','skin_peeling',
+        'silver_like_dusting','small_dents_in_nails','inflammatory_nails','blister','red_sore_around_nose','yellow_crust_ooze'];
+
+        var selects = document.querySelectorAll("select");
+        var predictButton = document.getElementById("predictButton");
+
+        for (var i = 0; i < selects.length; i++) {
+            var select = selects[i];
+            for (var j = 0; j < symptoms.length; j++) {
+                var option = document.createElement("option");
+                option.value = symptoms[j];
+                option.text = symptoms[j];
+                select.appendChild(option);
+            }
+            select.addEventListener("change", validateForm);
+        }
+
+        function validateForm() {
+            var allSelected = true;
+            for (var i = 0; i < selects.length; i++) {
+                if (selects[i].value === "None") {
+                    allSelected = false;
+                    break;
+                }
+            }
+
+            predictButton.disabled = !allSelected;
+            return allSelected;
+        }
+    </script>
+</body>
+</html>
